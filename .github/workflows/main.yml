@@ -3,7 +3,7 @@ name: CI
 on:
   push: 
     branches: 
-      - main
+      - master
 
 jobs:
   build-and-push: 
@@ -15,4 +15,4 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build docker image
-      run: docker build -t api-journey:v2
+      run: docker build -t kaugoncalves/nlw.journey.api: .
