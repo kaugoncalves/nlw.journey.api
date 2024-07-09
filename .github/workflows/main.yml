@@ -15,4 +15,4 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build docker image
-      run: docker build -t kaugoncalves/nlw.journey.api: .
+      run: docker build -t kaugoncalves/nlw.journey.api:latest .
