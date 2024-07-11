@@ -29,3 +29,8 @@ jobs:
     - name: Build docker image
       run: docker build -t kaugoncalves/nlw.journey.api:${{ steps.generate_sha.outputs.sha }} .
 
+    - name: Push image
+      run: |
+        docker push kaugoncalves/nlw.journey.api:${{ steps.generate_sha.outputs.sha }}
+        docker tag kaugoncalves/nlw.journey.api:${{ steps.generate_sha.outputs.sha }} kaugoncalves/nlw.journey.api:latest
+        docker push kaugoncalves/nlw.journey.api:latest
