@@ -38,6 +38,6 @@ jobs:
         context: .
         push: true
         tags: |
-          kaugoncalves/nlw.journey.api:${{ steps.generate_sha.outputs.sha }}
-          kaugoncalves/nlw.journey.api:latest
+          ${{ secrets.DOCKERHUB_USERNAME }}/nlw.journey.api:${{ steps.generate_sha.outputs.sha }}
+          ${{ secrets.DOCKERHUB_USERNAME }}/nlw.journey.api:latest
 
