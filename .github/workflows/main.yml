@@ -34,4 +34,9 @@ jobs:
         tags: |
           kaugoncalves/nlw.journey.api:${{ steps.generate_sha.outputs.sha }}
           kaugoncalves/nlw.journey.api:latest
+
+    - name: Debugging
+      run: |
+          echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}"
+          echo "DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}"
         
