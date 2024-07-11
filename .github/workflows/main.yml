@@ -14,6 +14,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Setup Go
+      uses: actions/checkout@v4
+      with:
+        go-version: '^1.13.1' # The Go version to download (if necessary) and use.
+
+    - name: Run Tests
+      run: go tests
+
     - name: Generate SHA
       id: generate_sha
       run: |
@@ -24,13 +32,7 @@ jobs:
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        
-    - name: Debugging
-      run: |
-          echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}"
-          echo "DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}"
-          
+        password: ${{ secrets.DOCKERHUB_TOKEN }}  
 
     - name: Build and push
       uses: docker/build-push-action@v6
